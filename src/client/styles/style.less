@@ -1,0 +1,103 @@
+@mainColor: #D4D8D9;
+
+body {
+    background-color: @mainColor;
+}
+
+.jumbotron {
+    background-color: darken(@mainColor, 20%);    
+}
+
+.btn {
+    color: black;
+}
+
+.category-list {
+    background-color: darken(@mainColor, 10%);
+    border: 1px solid black;
+    margin-bottom: 50px;
+}
+
+#budget {
+    color: green;
+}
+.budget-slider {
+    float: right;
+}
+
+.params-row {
+    margin-bottom: 20px;
+}
+
+.result {
+    margin-bottom: 15px;
+}
+
+.result-body {
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+}
+
+.result-body 
+{
+    h1 
+    {
+        margin-top: -5px;
+    }
+    .btn-group 
+    {
+        margin-top: 5px;
+    }
+    textarea {
+        resize: none;
+        background-color: darken(@mainColor, 10%);
+    }
+}
+
+.result-fail {
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+.result-success p {
+    margin-top: 10px;
+}
+
+.result-price {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid @mainColor;
+    display: inline-block;
+    padding: 10px;
+    padding-top: 20px;
+
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+
+    margin-bottom: -1px;
+    background-color: @mainColor;
+
+    margin-top: 0px;
+
+}
+
+
+.uncheck-cat {
+    margin-left: 10px;
+}
+
+.category-view {
+    span.glyphicon {
+        float: right;
+    }
+}
+.cat-options {
+    padding-top: 10px;
+}
+.category-view ul {
+    list-style: none;  
+}
