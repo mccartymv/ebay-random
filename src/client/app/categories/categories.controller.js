@@ -39,7 +39,7 @@
 
         angular.element(document).ready(function() {
             $scope.getCats();
-        });        
+        });
 
         $scope.getCats = function() {
             $http.get('/api/categories')
@@ -94,7 +94,7 @@
         };
 
         $scope.getEbayItem = function() {
-            $scope.results.unshift({ shop : 'loading' });
+            $scope.results.unshift({shop : 'loading'});
             /**
             var target = document.getElementById('results-container');
             console.log(target);
@@ -102,7 +102,7 @@
             target.appendChild(spinner.el);
             **/
 
-            // settting up random category + budget            
+            // settting up random category + budget
             var approvedCats = [];
             _.each($scope.docs, function(obj) {
                 _.each(obj.categories, function(cat) {
