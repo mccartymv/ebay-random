@@ -39,6 +39,9 @@
         </div>
         <div class="row">
             <div class="results-container col-sm-7" id="results-container">
+                <div ng-show="results[0].status === 'loading'">
+                    <p>wait for it...</p>
+                </div>
                 <div ng-repeat="result in results">
                     <div class="result result-success" ng-show="result.listTitle">
                         <h1 class="result-price">{{result.listPrice}}</h1>
