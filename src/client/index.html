@@ -52,10 +52,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="result result-fail" ng-show="!result.listTitle && result.shop != 'loading'">
+                    <div class="result result-fail" ng-show="!result.listTitle && result.status != 'loading'">
                         <span class="glyphicon glyphicon-alert"></span>&nbsp;bad request, please try again
-                    </div>
-                    <div id="load-spin" class="result load-spin" ng-show="result.shop === 'loading'" ng-init="loadSpinner()">
                     </div>
                 </div>
             </div>

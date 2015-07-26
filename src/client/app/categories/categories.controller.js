@@ -94,7 +94,7 @@
         };
 
         $scope.getEbayItem = function() {
-            $scope.results.unshift({shop : 'loading'});
+            $scope.results.unshift({status : 'loading'});
             /**
             var target = document.getElementById('results-container');
             console.log(target);
@@ -133,6 +133,7 @@
             //console.log(selectedCat);
             $http.post('/api/scrape', selectedCat)
             .success(function(data) {
+                data.status = "loaded";
                 $scope.results[0] = data;
             })
             .error(function(data) {
