@@ -12,7 +12,9 @@ var routes;
 
 var environment = process.env.NODE_ENV;
 
-mongoose.connect('mongodb://localhost/scrape');
+var dbUrl = environment === 'build' ? 'mongodb://public:dare@ds063892.mongolab.com:63892/scrape' : 'mongodb://localhost/scrape';
+
+mongoose.connect(dbUrl);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
