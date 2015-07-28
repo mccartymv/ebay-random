@@ -8,6 +8,9 @@ var config = require('./gulp.config')();
 
 var port = process.env.PORT || config.defaultPort;
 
+gulp.task('help', $.taskListing);
+gulp.task('default', ['help']);
+
 gulp.task('vet', function() {
     log('vetting js now');
     return gulp
