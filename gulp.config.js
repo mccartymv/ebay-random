@@ -4,29 +4,29 @@ module.exports = function() {
     var temp = './.tmp/';
     var server = './src/server/';
     var config = {
-        index: client + 'index.html',
-        client: client,
-        temp: temp,
-        server: server,
         alljs: [
           './src/**/*.js',
           './*.js',
           '!./modifyDocsServer.js'
         ],
-        js: [
-          clientApp + '**/*.module.js',
-          clientApp + '**/*.js'
-        ],
-        less: client + 'styles/style.less',
-        css: temp + 'style.css',
         bower: {
             json: require('./bower.json'),
             directory: './bower_components',
             ignorePath: '../..'
         },
-        nodeServer: server + 'app.js',
+        browserReloadDelay: 1000,
+        client: client,
+        css: temp + 'style.css',
         defaultPort: 8686,
-        browserReloadDelay: 1000
+        index: client + 'index.html',
+        js: [
+          clientApp + '**/*.module.js',
+          clientApp + '**/*.js'
+        ],
+        less: client + 'styles/style.less',
+        nodeServer: server + 'app.js',
+        server: server,
+        temp: temp
     };
     config.getWiredepOptions = function() {
         var options = {
