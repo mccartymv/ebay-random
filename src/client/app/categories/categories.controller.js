@@ -133,7 +133,7 @@
             //console.log(selectedCat);
             $http.post('/api/scrape', selectedCat)
             .success(function(data) {
-                data.status = "loaded";
+                data.status = 'loaded';
                 $scope.results[0] = data;
             })
             .error(function(data) {
