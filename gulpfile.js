@@ -55,7 +55,12 @@ gulp.task('inject', ['wiredep', 'styles'], function() {
 });
 
 gulp.task('serve-dev', ['inject'], function() {
-    var isDev = true;
+    serve(true /* isDev */);
+});
+
+/////
+
+function serve(isDev) {
     var nodeOptions = {
         script: config.nodeServer,
         delayTime: 1,
@@ -76,7 +81,7 @@ gulp.task('serve-dev', ['inject'], function() {
         })
         .on('start', function() {
             log('*** nodemon started');
-            startBrowserSync();
+            startBrowserSync(isDev);
         })
         .on('crash', function() {
             log('*** nodemon crashed: script crashed for some reason');
@@ -84,9 +89,7 @@ gulp.task('serve-dev', ['inject'], function() {
         .on('exit', function() {
             log('*** nodemon exited cleanly');
         });
-});
-
-/////
+}
 
 function changeEvent(event) {
     var srcPattern = new RegExp('/.*(?=/' + config.source + ')/');
