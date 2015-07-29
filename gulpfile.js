@@ -51,6 +51,7 @@ gulp.task('inject', ['wiredep', 'styles'], function() {
     return gulp
       .src(config.index)
       .pipe($.inject(gulp.src(config.css)))
+      .pipe($.replace(/="..\/..\/bower_components\//g, '="/bower_components/'))
       .pipe(gulp.dest(config.client));
 });
 
