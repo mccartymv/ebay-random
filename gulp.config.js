@@ -15,6 +15,7 @@ module.exports = function() {
             ignorePath: '../..'
         },
         browserReloadDelay: 1000,
+        build: './build/',
         client: client,
         css: temp + 'style.css',
         defaultPort: 8686,

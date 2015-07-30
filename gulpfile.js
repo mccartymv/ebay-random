@@ -26,6 +26,15 @@ gulp.task('clean-styles', function(done) {
     clean(files, done);
 });
 
+gulp.task('clean-code', function(done) {
+    var files = [].concat(
+        config.temp + '**/*.js',
+        config.build + '**/*.html',
+        config.build + 'js/**/*.js'
+    );
+    clean(files, done);
+});
+
 gulp.task('styles', ['clean-styles'], function() {
     log('compiling Less --> CSS');
     return gulp
