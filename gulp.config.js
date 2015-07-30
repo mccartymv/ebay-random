@@ -19,6 +19,7 @@ module.exports = function() {
         client: client,
         css: temp + 'style.css',
         defaultPort: 8686,
+        htmlTemplates: clientApp + '**/*.html',
         index: client + 'index.html',
         js: [
           clientApp + '**/*.module.js',
@@ -27,7 +28,15 @@ module.exports = function() {
         less: client + 'styles/style.less',
         nodeServer: server + 'app.js',
         server: server,
-        temp: temp
+        temp: temp,
+        templateCache: {
+            file: 'templates.js',
+            options: {
+                module : 'app',
+                standAlone: false,
+                root: 'app/'
+            }
+        }
     };
     config.getWiredepOptions = function() {
         var options = {

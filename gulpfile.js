@@ -35,6 +35,19 @@ gulp.task('clean-code', function(done) {
     clean(files, done);
 });
 
+gulp.task('templatecache', ['clean-code'], function() {
+    log('creating angularJS $templateCache');
+
+    return gulp
+        .src(config.htmlTemplates)
+        .pipe($.minifyHtml({empty : true}))
+        .pipe($.angularTemplatecache(
+            config.templateCache.file,
+            config.templateCache.options
+        ))
+        .pipe(gulp.dest(config.temp));
+});
+
 gulp.task('styles', ['clean-styles'], function() {
     log('compiling Less --> CSS');
     return gulp
