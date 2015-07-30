@@ -69,7 +69,7 @@ gulp.task('wiredep', function() {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles'], function() {
+gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
     return gulp
       .src(config.index)
       .pipe($.inject(gulp.src(config.css)))
