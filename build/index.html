@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+    <link rel="stylesheet" href="styles/lib.css">
+
+    <link rel="stylesheet" href="styles/app.css">
+
+    <title>famous random ebay scrape technology</title>
+
+</head>
+<body ng-controller="Categories">
+    <div class="container">
+        <h1 class="jumbotron">Random Ebay Scrape</h1>
+        <div class="row params-row">
+            <div class="col-sm-3">
+                <button class="btn btn-success" ng-click="getEbayItem()"><span class="glyphicon glyphicon-flash"></span>show me an item</button>
+            </div>
+            <div class="options col-sm-3">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" ng-class="{active : listingType === 'all'}" ng-click="listingType = 'all'">All Listings</button>
+                    <button type="button" class="btn btn-default" ng-class="{active : listingType === 'auc'}" ng-click="listingType = 'auc'">Auction</button>
+                    <button type="button" class="btn btn-default" ng-class="{active : listingType === 'bin'}" ng-click="listingType = 'bin'">Buy It Now</button>
+                </div>
+            </div>
+            <div class="slider col-sm-3">
+                <div class="btn-group budget-slider" role="group">
+                    <button type='button' class='btn btn-default' ng-click='budget = budget-1'>-</button>
+                    <button type='button' class='btn btn-default' ng-click='budget = budget+1'>+</button>
+                </div>
+            </div>
+            <div class="budget col-sm-3">
+                <h2 id="budget">{{budget | currency}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="results-container col-sm-7" id="results-container">
+                <div ng-show="results[0].status === 'loading'">
+                    <p>wait for it...</p>
+                </div>
+                <div ng-repeat="result in results">
+                    <div class="result result-success" ng-show="result.listTitle">
+                        <h1 class="result-price">{{result.listPrice}}</h1>
+                        <div class="result-body">
+                            <h4>{{result.shop}} - {{result.category}}</h4>
+                            <h1>{{result.listTitle}}</h1>
+                            <textarea>{{result.listHref}}</textarea><br />
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-warning" ng-show="result.checked" ng-click="toggleCat(result.shop,result.category,false)">uncheck category</button>
+                                <button type="button" class="btn btn-info" ng-hide="result.checked" ng-click="toggleCat(result.shop,result.category,true)">recheck category</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result result-fail" ng-show="!result.listTitle && result.status != 'loading'">
+                        <span class="glyphicon glyphicon-alert"></span>&nbsp;bad request, please try again
+                    </div>
+                </div>
+            </div>
+        	<div class="category-list col-sm-5">
+                <div class="category-view" ng-repeat="doc in docs">
+                    <div ng-click="doc.open=!doc.open"><h3>{{doc.shop}}<span ng-hide="doc.open" class="glyphicon glyphicon-chevron-right"></span><span ng-show="doc.open" class="glyphicon glyphicon-chevron-down"></span></h3></div>
+                    <ul ng-show="doc.open">
+                        <li ng-repeat="cat in doc.categories"><input type="checkbox" ng-model="cat.checked" ng-change="toggleCat(doc.shop,cat.category,cat.checked)"/>{{cat.category}}</li>
+                        <div class="cat-options">
+                            <button class="btn btn-info" ng-click="toggleStore(doc.shop,'check')">check all</button>
+                            <button class="btn btn-warning" ng-click="toggleStore(doc.shop, 'uncheck')">uncheck all</button>
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/lib.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
