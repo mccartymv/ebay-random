@@ -19,6 +19,7 @@ module.exports = function() {
         client: client,
         css: temp + 'style.css',
         defaultPort: 8686,
+        fonts: './bower_components/bootstrap/fonts/**/*.*',
         htmlTemplates: clientApp + '**/*.html',
         index: client + 'index.html',
         js: [
