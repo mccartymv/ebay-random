@@ -95,6 +95,10 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
       .pipe(gulp.dest(config.client));
 });
 
+gulp.task('serve-build', ['optimize'], function() {
+    serve(false /* isDev */);
+});
+
 gulp.task('serve-dev', ['inject'], function() {
     serve(true /* isDev */);
 });
