@@ -2,6 +2,10 @@
   "name": "ebay-random",
   "version": "1.0.0",
   "description": "random ebay auction",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/halloweenkeyboards/ebay-random.git"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
