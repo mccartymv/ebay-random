@@ -78,7 +78,6 @@
         };
 
         $scope.toggleCat = function(shop, cat, pref) {
-            //console.log(shop + " " + cat + " " + pref);
             _.each($scope.docs, function(obj) {
                 if (obj.shop === shop) {
                     _.each(obj.categories, function(category) {
@@ -102,12 +101,6 @@
                 spinner.spin(spinnerDiv);
             }
             $scope.results.unshift({status : 'loading'});
-            /**
-            var target = document.getElementById('results-container');
-            console.log(target);
-            var spinner = new Spinner().spin();
-            target.appendChild(spinner.el);
-            **/
 
             // settting up random category + budget
             var approvedCats = [];
@@ -137,7 +130,6 @@
                     break;
             }
 
-            //console.log(selectedCat);
             $http.post('/api/scrape', selectedCat)
             .success(function(data) {
                 data.status = 'loaded';
