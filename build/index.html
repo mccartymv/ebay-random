@@ -35,8 +35,7 @@
         </div>
         <div class="row">
             <div class="results-container col-sm-7" id="results-container">
-                <div ng-show="results[0].status === 'loading'">
-                    <p>wait for it...</p>
+                <div id="spinner">
                 </div>
                 <div ng-repeat="result in results">
                     <div class="result result-success" ng-show="result.listTitle">

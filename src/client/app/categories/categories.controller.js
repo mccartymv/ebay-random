@@ -14,12 +14,14 @@
 
         $scope.results = [];
 
+        var spinner = null;
+        var spinnerDiv = $('#spinner').get(0);
         var spinnerOpts = {
               lines: 15 // The number of lines to draw
             , length: 56 // The length of each line
             , width: 19 // The line thickness
             , radius: 73 // The radius of the inner circle
-            , scale: 0.75 // Scales overall size of the spinner
+            , scale: 0.2 // Scales overall size of the spinner
             , corners: 0.1 // Corner roundness (0..1)
             , color: '#000' // #rgb or #rrggbb or array of colors
             , opacity: 0.25 // Opacity of the lines
@@ -94,6 +96,11 @@
         };
 
         $scope.getEbayItem = function() {
+            if(spinner === null) {
+                spinner = new Spinner(spinnerOpts).spin(spinnerDiv);
+            } else {
+                spinner.spin(spinnerDiv);
+            }
             $scope.results.unshift({status : 'loading'});
             /**
             var target = document.getElementById('results-container');
@@ -134,6 +141,7 @@
             $http.post('/api/scrape', selectedCat)
             .success(function(data) {
                 data.status = 'loaded';
+                spinner.stop(spinnerDiv);
                 $scope.results[0] = data;
             })
             .error(function(data) {

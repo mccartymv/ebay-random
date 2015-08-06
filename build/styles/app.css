@@ -62,6 +62,9 @@ body {
   background-color: #d4d8d9;
   margin-top: 0px;
 }
+#spinner {
+  position: relative;
+}
 .uncheck-cat {
   margin-left: 10px;
 }
