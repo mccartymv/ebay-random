@@ -1,4 +1,4 @@
-## drug-sentiment
+## ebay random scrape
 
 give it a budget in US dollars, and this will scrape ebay for a random item 
 
