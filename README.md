@@ -1,9 +1,12 @@
-# eBay.com random scrape
+## drug-sentiment
 
 give it a budget in US dollars, and this will scrape ebay for a random item 
 
-disable categories so you will always find something awesome
+## building the project
 
-download and unzip the repository, install npm and bower dependencies, then from the root folder run:
-
-NODE_ENV=build node src/server/app.js
+- `git clone` this repo
+- `cd drug-sentiment` to enter project root folder
+- `npm install` to install server-side dependencies
+- `bower install` to install client-side dependencies
+- start the server with `NODE_ENV=build node src/server/app.js`
+- once the server is running, point your browser to `localhost:7575`
