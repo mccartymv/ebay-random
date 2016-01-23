@@ -68,6 +68,9 @@ body {
 .uncheck-cat {
   margin-left: 10px;
 }
+.category-view h3 {
+  cursor: pointer;
+}
 .category-view span.glyphicon {
   float: right;
 }
