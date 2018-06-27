@@ -30,6 +30,8 @@
         $scope.budget = 17;
         $scope.listingType = 'all';
 
+        $scope.gotItButtonHasBeenClicked = false;
+
         $scope.results = [];
 
         var spinner = null;
@@ -164,5 +166,9 @@
             var spinner = new Spinner().spin();
             document.getElementById('results-container').getElementsByClassName('load-spin')[0].appendChild(spinner.el);
         };
+
+        $scope.gotItButtonToggle = function() {
+            $scope.gotItButtonHasBeenClicked = true;
+        }
     }
 })();

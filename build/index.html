@@ -12,13 +12,14 @@
 <body ng-controller="Categories" ng-cloak>
     <div class="container">
         <h1 class="jumbotron">Random eBay Item Generator</h1>
-        <div id="overview" class="container-fluid">
+        <div id="overview" class="container-fluid" ng-hide="gotItButtonHasBeenClicked">
             <p>There are millions of items for sale on eBay at any given moment. This web app gives you the ability to pluck one at random.<br /><br />
             Maybe you need to buy someone a gift for a given budget, such as an office <strong>secret santa</strong> exchange. With this app you can give a budget in dollars for your random item.
             Increase or decrease your item budget with the two buttons on the right. Both kinds of ebay listings are selected by default, but you can choose to either see only auctions or only items that are "Buy It Now" listings.<br /><br />
             Click the button to the left to get started!<br /><br />
             On the sidebar to the right are all of the categories and subcategories of items on eBay. You can easily omit certian subcategories or entire categories from the search. If you are tired of getting items from a certian subcategory, a button has been provided on the listing result to uncheck it's subcategory.<br /><br />
-            This is a full-stack javascript web app that uses Angular on the front end. Node.js is used on the backend and scraping pages are parsed with the node package cheerio. It is mobile-first with bootstrap. The code for this page and other projects I have built are available to view at <a href="https://www.github.com/mccartymv">Github</a>.
+            This is a full-stack JavaScript web app that uses Angular on the front end. Node.js is used on the backend and scraped pages are parsed with the node package cheerio. It is mobile-first with bootstrap. The code for this page and other projects I have built are available to view at <a href="https://www.github.com/mccartymv">Github</a>.
+            <button class="btn btn-dark got-it-btn" ng-click="gotItButtonToggle()">Got it.</button>
             </p>
         </div>
         <div class="row params-row">

@@ -89,10 +89,22 @@ body {
   display: none;
 }
 
+#overview {
+  white-space: normal;
+}
+
 #overview p {
   padding: 12px;
   margin-bottom: 20px;
   background-color: #eee;
   color: black;
+  padding-bottom: 20px;
+}
 
+.got-it-btn {
+  float: right;
+}
+
+.btn-dark {
+  background-color: grey;
 }
