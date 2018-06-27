@@ -45,11 +45,14 @@ db.once('open', function() {
 
     function scrape(req, res) {
         request(req.body.url, function(err, response, html) {
+            //console.log(req.body.url);
             if (err) { throw err; }
             var $ = cheerio.load(html);
-            req.body.listTitle = $('body').find('li.sresult.lvresult.clearfix').first().find('h3.lvtitle').text().replace(/\s\s+/g, ' ');
-            req.body.listPrice = $('body').find('li.sresult.lvresult.clearfix').first().find('.lvprice.prc').text().replace(/\s\s+/g, ' ');
-            req.body.listHref = $('body').find('li.sresult.lvresult.clearfix').first().find('a.vip').attr('href');
+            req.body.listTitle = $('body').find('li.s-item').first().find('h3.s-item__title').text().replace(/\s\s+/g, ' ');
+            req.body.listPrice = $('body').find('li.s-item').first().find('.s-item__price').text().replace(/\s\s+/g, ' ');
+            req.body.listHref = $('body').find('li.s-item').first().find('a.s-item__link').attr('href');
+
+            console.log(req.body.listTitle);
 
             res.json(req.body);
         });
