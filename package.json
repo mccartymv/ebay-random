@@ -8,7 +8,11 @@
   },
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=build node src/server/app.js"
+  },
+  "engines": {
+    "node": "8.1.x",
+    "npm": "6.1.x"
   },
   "author": "[ 'max mccarty' ]",
   "license": "ISC",
