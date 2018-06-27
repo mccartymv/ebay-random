@@ -11,7 +11,7 @@
 </head>
 <body ng-controller="Categories" ng-cloak>
     <div class="container">
-        <h1 class="jumbotron">Random Ebay Item App</h1>
+        <h1 class="jumbotron">Random eBay Item Generator</h1>
         <div class="row params-row">
             <div class="col-sm-3">
                 <button class="btn btn-success" ng-click="getEbayItem()"><span class="glyphicon glyphicon-flash"></span>show me an item</button>
@@ -42,8 +42,7 @@
                         <h1 class="result-price">{{result.listPrice}}</h1>
                         <div class="result-body">
                             <h4>{{result.shop}} - {{result.category}}</h4>
-                            <h1>{{result.listTitle}}</h1>
-                            <textarea readonly>{{result.listHref}}</textarea><br />
+                            <h1><a href="{{result.listHref}}" target="_blank">{{result.listTitle}}</a></h1>
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-warning" ng-show="result.checked" ng-click="toggleCat(result.shop,result.category,false)">uncheck category</button>
                                 <button type="button" class="btn btn-info" ng-hide="result.checked" ng-click="toggleCat(result.shop,result.category,true)">recheck category</button>
