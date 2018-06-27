@@ -88,3 +88,11 @@ body {
 .x-ng-cloak {
   display: none;
 }
+
+#overview p {
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: #eee;
+  color: black;
+
+}
