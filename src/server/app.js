@@ -45,14 +45,30 @@ db.once('open', function() {
 
     function scrape(req, res) {
         request(req.body.url, function(err, response, html) {
-            console.log(req.body.url);
+            //console.log(req.body.url);
             if (err) { throw err; }
             var $ = cheerio.load(html);
-            req.body.listTitle = $('body').find('li.s-item').first().find('h3.s-item__title').text().replace(/\s\s+/g, ' ');
-            req.body.listPrice = $('body').find('li.s-item').first().find('.s-item__price').text().replace(/\s\s+/g, ' ');
-            req.body.listHref = $('body').find('li.s-item').first().find('a.s-item__link').attr('href');
 
-            console.log(req.body.listTitle);
+            // conditional to check for the 2 different CSS selectors we have beem seeing lately
+            if ($('body').find('li.sresult.lvresult.clearfix').first().find('h3.lvtitle').text().replace(/\s\s+/g, ' ').length == 0) {
+                var listingCssSelector = "li.s-item";
+
+                var titleCssSelector = "h3.s-item__title";
+                var priceCssSelector = ".s-item__price";
+                var hrefCssSelector = "a.s-item__link";
+            } else {
+                var listingCssSelector = "li.sresult.lvresult.clearfix";
+
+                var titleCssSelector = "h3.lvtitle";
+                var priceCssSelector = ".lvprice.prc";
+                var hrefCssSelector = "'a.vip'";
+            }
+
+            req.body.listTitle = $('body').find(listingCssSelector).first().find(titleCssSelector).text().replace(/\s\s+/g, ' ');
+            req.body.listPrice = $('body').find(listingCssSelector).first().find(priceCssSelector).text().replace(/\s\s+/g, ' ');
+            req.body.listHref = $('body').find(listingCssSelector).first().find(hrefCssSelector).attr('href');
+
+            //console.log(req.body.listTitle);
 
             res.json(req.body);
         });
