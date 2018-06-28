@@ -48,9 +48,9 @@ db.once('open', function() {
             console.log(req.body.url);
             if (err) { throw err; }
             var $ = cheerio.load(html);
-            req.body.listTitle = $('body').find('li.lvresult').first().find('h3.lvtitle').text().replace(/\s\s+/g, ' ');
-            req.body.listPrice = $('body').find('li.lvresult').first().find('.lvprice').text().replace(/\s\s+/g, ' ');
-            req.body.listHref = $('body').find('li.lvresult').first().find('a.vip').attr('href');
+            req.body.listTitle = $('body').find('li.s-item').first().find('h3.s-item__title').text().replace(/\s\s+/g, ' ');
+            req.body.listPrice = $('body').find('li.s-item').first().find('.s-item__price').text().replace(/\s\s+/g, ' ');
+            req.body.listHref = $('body').find('li.s-item').first().find('a.s-item__link').attr('href');
 
             console.log(req.body.listTitle);
 
